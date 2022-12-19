@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   LightModeOutlined,
   DarkModeOutlined,
@@ -13,14 +14,20 @@ import profileImage from "assets/profile.jpeg";
 import {
   useTheme,
   AppBar,
+  Button,
   Toolbar,
   IconButton,
   InputBase,
 } from "@mui/material";
 
-const NavBar = ({ isSideBarOpen, setIsSideBarOpen }) => {
+const NavBar = ({ user, isSideBarOpen, setIsSideBarOpen }) => {
   const dispatch = useDispatch();
   const theme = useTheme();
+
+  const [anchorEl, setAnchorEl] = useState(null);
+  const isOpen = Boolean(anchorEl);
+  const handleClick = (event) => setAnchorEl(event.currentTarget);
+  const handleClose = () => setAnchorEl(null);
 
   return (
     <AppBar
@@ -61,6 +68,18 @@ const NavBar = ({ isSideBarOpen, setIsSideBarOpen }) => {
           <IconButton>
             <SettingsOutlined sx={{ fontSize: "25px" }} />
           </IconButton>
+          <FlexBetween>
+            <Button
+              onClick={handleClick}
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                textTransform: "none",
+                gap: "1rem",
+              }}
+            ></Button>
+          </FlexBetween>
         </FlexBetween>
       </Toolbar>
     </AppBar>
