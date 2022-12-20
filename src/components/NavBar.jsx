@@ -13,11 +13,15 @@ import { setMode } from "state";
 import profileImage from "assets/profile.jpeg";
 import {
   useTheme,
+  Box,
   AppBar,
   Button,
   Toolbar,
   IconButton,
   InputBase,
+  Typography,
+  Menu,
+  MenuItem,
 } from "@mui/material";
 
 const NavBar = ({ user, isSideBarOpen, setIsSideBarOpen }) => {
@@ -78,7 +82,44 @@ const NavBar = ({ user, isSideBarOpen, setIsSideBarOpen }) => {
                 textTransform: "none",
                 gap: "1rem",
               }}
-            ></Button>
+            >
+              <Box
+                component="img"
+                alt="profile"
+                src={profileImage}
+                height="32px"
+                width="32px"
+                borderRadius="50%"
+                sx={{ objectFit: "cover" }}
+              />
+              <Box textAlign="left">
+                <Typography
+                  fontWeight="bold"
+                  fontSize="0.9rem"
+                  sx={{ color: theme.palette.secondary[100] }}
+                >
+                  {user.name}
+                </Typography>
+                <Typography
+                  fontWeight="bold"
+                  fontSize="0.75rem"
+                  sx={{ color: theme.palette.secondary[200] }}
+                >
+                  {user.occupation}
+                </Typography>
+              </Box>
+              <ArrowDropDownOutlined
+                sx={{ color: theme.palette.secondary[300], fontSize: "25px" }}
+              />
+            </Button>
+            <Menu
+              anchorEl={anchorEl}
+              open={isOpen}
+              onClose={handleClose}
+              anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+            >
+              <MenuItem onClick={handleClose}>Log Out</MenuItem>
+            </Menu>
           </FlexBetween>
         </FlexBetween>
       </Toolbar>

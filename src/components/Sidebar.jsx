@@ -158,7 +158,7 @@ const Sidebar = ({
                 src={profileImage}
                 height="40px"
                 width="40px"
-                borderRadius="50"
+                borderRadius="50%"
                 sx={{ objectFit: "cover" }}
               />
               <Box textAlign="left">
