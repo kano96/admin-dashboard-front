@@ -4,6 +4,7 @@ import { useGetTransactionsQuery } from "state/api";
 import Header from "components/Header";
 import DataGridCustomToolbar from "components/DataGridCustomToolbar";
 import { Box, useTheme } from "@mui/material";
+import { getFullDateFormatted } from "utils/dateUtils";
 
 const Transactions = () => {
   const theme = useTheme();
@@ -20,8 +21,6 @@ const Transactions = () => {
     search,
   });
 
-  console.log(data?.total);
-
   const columns = [
     {
       field: "_id",
@@ -37,6 +36,7 @@ const Transactions = () => {
       field: "createdAt",
       headerName: "Created At",
       flex: 1,
+      renderCell: (date) => getFullDateFormatted(date.value),
     },
     {
       field: "products",
