@@ -55,7 +55,7 @@ const Daily = () => {
   }, [data, startDate, endDate]);
 
   return (
-    <Box m="1.5rem 2.5 rem">
+    <Box m="1.5rem 2.5rem">
       <Header title="DAILY SALES" subtitle="Chart of daily sales" />
       <Box height="75vh" mt="1rem">
         <Box display="flex" justifyContent="flex-end" alignItems="center">
