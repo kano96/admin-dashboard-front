@@ -63,7 +63,7 @@ const OverviewChart = ({ isDashboard = false, view }) => {
         background:
           theme.palette.mode === "dark"
             ? "transparent"
-            : theme.palette.secondary[400],
+            : theme.palette.secondary[900],
         axis: {
           domain: {
             line: {
@@ -133,7 +133,7 @@ const OverviewChart = ({ isDashboard = false, view }) => {
         legend: isDashboard
           ? ""
           : `Total ${view === "sales" ? "Revenue" : "Units"} for Year`,
-        legendOffset: -40,
+        legendOffset: -60,
         legendPosition: "middle",
       }}
       enableGridX={false}
