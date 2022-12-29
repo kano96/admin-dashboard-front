@@ -8,8 +8,6 @@ const OverviewChart = ({ isDashboard = false, view }) => {
   const theme = useTheme();
   const { data, isLoading } = useGetSalesQuery();
 
-  console.log(data);
-
   const [totalSalesLine, totalUnitsLine] = useMemo(() => {
     if (!data) {
       return [];
@@ -60,10 +58,6 @@ const OverviewChart = ({ isDashboard = false, view }) => {
     <ResponsiveLine
       data={view === "sales" ? totalSalesLine : totalUnitsLine}
       theme={{
-        background:
-          theme.palette.mode === "dark"
-            ? "transparent"
-            : theme.palette.secondary[900],
         axis: {
           domain: {
             line: {
@@ -92,10 +86,7 @@ const OverviewChart = ({ isDashboard = false, view }) => {
         },
         tooltip: {
           container: {
-            color:
-              theme.palette.mode === "dark"
-                ? theme.palette.primary.main
-                : theme.palette.secondary[100],
+            color: theme.palette.primary.main,
           },
         },
       }}
