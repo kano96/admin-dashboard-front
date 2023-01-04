@@ -11,6 +11,10 @@ const BreakdownChart = ({ isDashboard = false }) => {
     theme.palette.secondary[300],
     theme.palette.secondary[500],
   ];
+
+  if (!data || isLoading) {
+    return "Loading...";
+  }
   const formattedData = Object.entries(data?.salesByCategory).map(
     ([category, sales], i) => ({
       id: category,
@@ -19,10 +23,6 @@ const BreakdownChart = ({ isDashboard = false }) => {
       color: colors[i],
     })
   );
-
-  if (!data || isLoading) {
-    return "Loading...";
-  }
 
   return (
     <Box
