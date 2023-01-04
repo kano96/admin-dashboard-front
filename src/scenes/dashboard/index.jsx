@@ -5,7 +5,6 @@ import {
   Email,
   PointOfSale,
   PersonAdd,
-  Traff,
   Traffic,
 } from "@mui/icons-material";
 import {
